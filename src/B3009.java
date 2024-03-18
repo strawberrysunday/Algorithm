@@ -13,8 +13,8 @@ public class B3009 {
 
         int[] locationX = new int[3];
         int[] locationY = new int[3];
-        int targetX = 0;
-        int targetY = 0;
+        int targetX ;
+        int targetY ;
         StringTokenizer st;
 
         for (int i = 0; i < 3; i++) {
