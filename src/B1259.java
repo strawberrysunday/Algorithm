@@ -26,7 +26,7 @@ public class B1259 {
 
 
 
-            if (str.equals(reverseStr.toString())) {
+            if (str.contentEquals(reverseStr)) {
 
                 resultBuilder.append("yes");
 
