@@ -25,7 +25,7 @@ public class B1259 {
             StringBuilder reverseStr = new StringBuilder(str).reverse();
 
 
-//Modify
+
             if (str.contentEquals(reverseStr)) {
 
                 resultBuilder.append("yes");
