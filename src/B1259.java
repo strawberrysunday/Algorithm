@@ -1,11 +1,14 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 
 public class B1259 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringBuilder sb = new StringBuilder();
+
+        List<StringBuilder> results = new ArrayList<>();
 
 
         while (true) {
@@ -15,36 +18,32 @@ public class B1259 {
                 break;
             }
 
-            sb = new StringBuilder(str);
-            //    /*이 시점에서 StringBuilder가 초기화되기 때문에 앞의 결과가 사라진다. */
 
 
 
-            String reverseStr = sb.reverse().toString();
-
-
-            sb.delete(0, sb.length());
-
+            StringBuilder resultBuilder = new StringBuilder();
+            StringBuilder reverseStr = new StringBuilder(str).reverse();
 
 
 
+            if (str.equals(reverseStr.toString())) {
 
-            if (str.equals(reverseStr)) {
-
-                sb.append("yes");
+                resultBuilder.append("yes");
 
             }else {
 
-                sb.append("no");
+                resultBuilder.append("no");
             }
 
 
-            sb.append("\n");
+           results.add(resultBuilder);
 
 
         }
 
-        System.out.println(sb);
+        for (StringBuilder result : results) {
+            System.out.println(result);
+        }
 
     }
 }
