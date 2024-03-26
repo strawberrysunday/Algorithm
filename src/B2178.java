@@ -17,6 +17,11 @@ import java.util.StringTokenizer;
 
 public class B2178 {
 
+     static int N;
+     static int M;
+     static int[][] distance ;
+    static boolean[] visit;
+    static boolean[][] maze;
 
 
     public static void main(String[] args) throws IOException {
@@ -24,19 +29,41 @@ public class B2178 {
         StringTokenizer st = new StringTokenizer(br.readLine());
         int N = Integer.parseInt(st.nextToken());
         int M = Integer.parseInt(st.nextToken());
-        char[][] maze = new char[N][M];
+        maze = new boolean[N][M];
 
         for (int i = 0; i <N; i++) {
             String str = br.readLine();
-            char[] charArr = str.toCharArray();
-            maze[i] = charArr;
+
+            for (int j = 0; j < M; j++) {
+                char c = str.charAt(j);
+                if(c=='1'){
+                    maze[i][j]=true;
+                }
+            }
         }
 
         /*
         (0,0)에서 (N-1,M-1)까지 가야함
+        내일 혼자 다시 해보세요 !
          */
 
+        distance = new int[N][M];
+
+
+
+
+
+
+
+
     }
+
+    static void bfs(int x, int y) {
+
+
+
+    }
+
 
 
 }
