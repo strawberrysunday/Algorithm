@@ -36,7 +36,6 @@ public class B1260 {
             nodeMatrix[a][b] = nodeMatrix[b][a] = true;
         }
 
-
         arr = new boolean[N + 1];
         dfs(V);
 
