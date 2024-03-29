@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.LinkedList;
 
 public class B2667{
@@ -32,12 +33,24 @@ public class B2667{
 
         count = 0 ;
         visited = new boolean[N][N];
-        countApart = new LinkedList<>();
+        countApart = new LinkedList<Integer>();
 
 
-        dfs(0,0);
-        String string = countApart.toString();
-        System.out.println(string);
+        for (int i = 0; i < N; i++) {
+            for(int j = 0; j< N; j++){
+                if (apart[i][j] == 1 && !visited[i][j]) {
+                    count =1;
+                    dfs(i, j);
+                }
+            }
+        }
+
+        System.out.println(countApart.size());
+
+
+        Arrays.sort(new LinkedList[]{countApart});
+
+        System.out.println(countApart);
     }
 
     static void dfs(int x, int y) {
@@ -54,21 +67,16 @@ public class B2667{
             if(0>tmpX||tmpX>=N||0>tmpY||tmpY>=N){
                 continue;
             }
-            if (visited[tmpX][tmpY]){
+            if (apart[tmpX][tmpY]==0|| visited[tmpX][tmpY]){
                 continue;
             }
 
             if(apart[x][y]!=0 && !visited[tmpX][tmpY] ){
-                count =apart[x][y]+1;
+                count++;
                 visited[tmpX][tmpY]=true;
                 dfs(tmpX, tmpY);
-            }
-
-            if(apart[x][y]==0){
                 countApart.add(count);
-                System.out.println("count"+count+"dfs( "+x+" "+y+" )");
-                count = 0;
-                dfs(tmpX,tmpY);
+
             }
         }
 
