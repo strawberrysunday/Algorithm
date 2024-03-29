@@ -1,53 +1,25 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 
-public class B2775 {
-
-
-    static int [][] people;
+class B2775 {
     public static void main(String[] args) throws IOException {
-
+        StringBuffer sb = new StringBuffer();
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringBuilder sb = new StringBuilder();
-        int N = Integer.parseInt(br.readLine());
-
-
-
-        while (N-- > 0) {
+        int[][] apt = new int[15][15];
+        for(int i = 0; i < 15; i++) {
+            apt[0][i] = i;
+            apt[i][0] = 0;
+        }
+        for(int i = 1; i < 15; i++) {
+            for(int j = 1; j < 15; j++) {
+                apt[i][j] = apt[i][j-1] + apt[i-1][j];
+            }
+        }
+        int t = Integer.parseInt(br.readLine());
+        for(int i = 0; i < t; i++) {
             int k = Integer.parseInt(br.readLine());
             int n = Integer.parseInt(br.readLine());
-            people = new int[k + 1][n + 1];
-            sb.append(howManyPeople(k, n)).append("\n");
+            sb.append(apt[k][n]).append("\n");
         }
-
-
-        System.out.println(sb);
-
-
-
-
+        System.out.print(sb);
     }
-
-
-
-
-
-    static int howManyPeople(int k, int n) {
-        if (people[k][n] > 0) {
-            return people[k][n];
-        }
-
-        if (k == 0) {
-            return n;
-        } else if (n == 1) {
-            return 1;
-        } else {
-            return howManyPeople(k, n - 1) + howManyPeople(k - 1, n);
-        }
-    }
-
 }
-
-
-
