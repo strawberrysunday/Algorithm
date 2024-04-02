@@ -6,22 +6,32 @@ public class B2579 {
 
     static int N ;
     static int[] stairs ;
-    static int[] dp = new int[301];
+    static Integer[] dp = new Integer[301];
 
 
-    static void recursive(int N) {
+    static int recursive(int N) {
 
 
         if( N == 0){
             dp[0]= 0;
         } else if (N == 1) {
             dp[1]=stairs[1];
-        } else {
-
-
-            dp[N] = Math.max(dp[N-1],dp[N-2]) + stairs[N];
         }
 
+
+        // N이 1로 들어왔을때 arr[2]에 접근할 수도 있어서(이 생각은 어떻게 하지?)
+        if (N >= 2) {
+            dp[2]=stairs[1]+stairs[2];
+        }
+
+
+        // null값인지 확인하려면 Integer를 써야한다
+        if (dp[N] ==null ) {
+
+            dp[N] = Math.max(recursive(N - 3) + stairs[N - 1], recursive(N - 2)) + stairs[N];
+        }
+
+        return dp[N];
     }
 
 
@@ -44,21 +54,9 @@ public class B2579 {
         }
 
 
-        for (int i = 0; i <= N; i++) {
-
-            recursive(i);
 
 
-        }
-
-
-        for (int a : dp) {
-
-            System.out.println(a);
-        }
-
-
-        //System.out.println(dp[N]);
+        System.out.println(recursive(N));
 
 
 
