@@ -39,6 +39,7 @@ public class B11399 {
 
         for (int i = 0; i < dp.length; i++) {
             sum += dp[i];
+
         }
 
         System.out.println(sum);
