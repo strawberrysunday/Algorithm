@@ -77,7 +77,7 @@ public class B7576 {
                 // 방문하지 않았고 익은 토마토가 들어있으면--> 틀렸음 이미 익어있으면 n개의 상하좌우 토마토가 같은 날 익어가야하기때문에
                 if (tomatoes[newX][newY] == 1 && !visited[newX][newY]) {
                     //옆 토마토들 익히러가야함
-                    bfs(new Tomato(newX, newY));
+                    bfs();
                     days++;
                     continue;
                 }
@@ -85,6 +85,7 @@ public class B7576 {
                 //토마토 익히기
                 tomatoes[newX][newY] = 1;
                 visited[newX][newY]=true;
+                days++;
                 tomatoQueue.add(new Tomato(newX, newY));
 
             }
