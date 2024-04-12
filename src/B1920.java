@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class B1920 {
@@ -11,7 +12,7 @@ public class B1920 {
         StringBuilder sb = new StringBuilder();
         int N = Integer.parseInt(br.readLine());
         int[] arr = new int[N];
-        StringTokenizer st = new StringTokenizer(br.readLine());
+        StringTokenizer st = new StringTokenizer(br.readLine()," ");
 
         for (int i = 0; i < N; i++) {
 
@@ -19,9 +20,11 @@ public class B1920 {
 
         }
 
+        Arrays.sort(arr);
+
         int M = Integer.parseInt(br.readLine());
         int[] target = new int[M];
-        StringTokenizer st2 = new StringTokenizer(br.readLine());
+        StringTokenizer st2 = new StringTokenizer(br.readLine()," ");
         for (int i = 0; i < M; i++) {
             target[i] = Integer.parseInt(st2.nextToken());
         }
