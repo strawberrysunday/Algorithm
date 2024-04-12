@@ -9,7 +9,7 @@ public class B2750 {
 
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
+        StringBuilder sb = new StringBuilder();
         int N = Integer.parseInt(br.readLine());
 
         int[] arr = new int[N];
@@ -21,7 +21,11 @@ public class B2750 {
 
         for (int a : arr) {
 
-            System.out.println(a);
+            sb.append(a).append("\n");
+
+
         }
+        System.out.println(sb);
     }
 }
+
