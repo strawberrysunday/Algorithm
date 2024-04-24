@@ -54,7 +54,7 @@ public class B1010 {
         long ja = factorial(M);
 
       //  System.out.println("ja = " + ja);
-        long mo = factorial(M - N + 1) * factorial(N);
+        long mo = factorial(M - N ) * factorial(N);
 
        // System.out.println("mo = " + mo);
         return ja / mo;
